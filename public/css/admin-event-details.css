@@ -1,0 +1,110 @@
+/* admin-event-details.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header a button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: green;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+main {
+  padding: 30px;
+}
+
+main .event-container {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+main .event-container img {
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+main .event-container .details {
+  flex-grow: 1;
+}
+
+main .event-container h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+main .event-container p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.description-section {
+  margin-top: 30px;
+}
+
+.description-section p {
+  background: #eee;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.participants-section {
+  margin-top: 40px;
+}
+
+.participants-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.participants-section th,
+.participants-section td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.participants-section thead {
+  background: #f0f0f0;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}

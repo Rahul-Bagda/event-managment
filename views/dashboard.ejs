@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>User Dashboard</h1>
+    <nav>
+      <ul>
+         <li><a href="/admin/events">Total Events</a></li>
+        <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="dashboard-main">
+  <h2>Create New Event</h2>
+  <form class="event-form" method="POST" action="/api/events">
+    <label for="title">Event Title:</label>
+    <input type="text" id="title" name="title" placeholder="Enter event title" required />
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" placeholder="Enter event description" required></textarea>
+
+    <label for="venue">Venue:</label>
+    <input type="text" id="venue" name="venue" placeholder="Enter venue" required />
+
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" required />
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" required />
+
+    <label for="imageUrl">Image URL:</label>
+    <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/image.jpg" />
+
+    <label for="capacity">Capacity:</label>
+    <input type="number" id="capacity" name="capacity" min="1" placeholder="e.g., 100" required />
+
+    <button type="submit">Create Event</button>
+  </form>
+</main>
+
+
+
+  <footer>
+    <p>&copy; 2025 Event Management</p>
+  </footer>
+
+ 
+
+
+
+
+</body>
+</html>

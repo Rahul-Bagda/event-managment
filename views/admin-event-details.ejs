@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= event.title %> - Event Details</title>
+  <link rel="stylesheet" href="/css/admin-event-details.css" />
+</head>
+<body>
+  <header>
+    <h1><%= event.title %> - Details</h1>
+    <a href="/admin/events"><button>Back</button></a>
+  </header>
+
+  <main>
+    <div class="event-container">
+      <img src="<%= event.imageUrl || '/images/default.jpg' %>" alt="<%= event.title %> Image" />
+      <div class="details">
+        <h2><%= event.title %></h2>
+        <p><strong>Venue:</strong> <%= event.venue %></p>
+        <p><strong>Start Date:</strong> <%= event.startDate.toDateString() %></p>
+        <p><strong>End Date:</strong> <%= event.endDate.toDateString() %></p>
+        <p><strong>Capacity:</strong> <%= event.capacity %></p>
+        <!-- <form action="/admin/events/<%= event._id %>?_method=DELETE" method="POST">
+          <button class="delete-btn" type="submit">Delete</button>
+        </form> -->
+      </div>
+    </div>
+
+    <section class="description-section">
+      <h3>Description</h3>
+      <p><%= event.description %></p>
+    </section>
+
+    <section class="participants-section">
+      <h3>Registered Participants (<%= registrations.length %>)</h3>
+      <% if (registrations.length > 0) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone No</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% registrations.forEach(reg => { %>
+              <tr>
+                <td><%= reg.name %></td>
+                <td><%= reg.email %></td>
+                <td><%= reg.phone %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <p>No participants registered for this event yet.</p>
+      <% } %>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <%= new Date().getFullYear() %> Event Management. All rights reserved.</p>
+  </footer>
+</body>
+</html>

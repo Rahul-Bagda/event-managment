@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - All Events</title>
+  <link rel="stylesheet" href="/css/admin-events.css" />
+</head>
+<body>
+  <header>
+    <h1>All Events (Admin)</h1>
+    <nav>
+      <ul>
+        <li><a href="/admin/events">Total Events</a></li>
+        <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <% if (events.length === 0) { %>
+      <p>No events available.</p>
+    <% } else { %>
+      <ul class="event-list">
+        <% events.forEach(event => { %>
+          <li class="event-card">
+            <h2><%= event.title %></h2>
+            <p><strong>Venue:</strong> <%= event.venue %></p>
+            <p><strong>Date:</strong> <%= event.startDate.toDateString() %> - <%= event.endDate.toDateString() %></p>
+            <p><%= event.description %></p>
+            <% if (event.imageUrl) { %>
+              <img src="<%= event.imageUrl %>" alt="Event Image" width="200"/>
+            <% } %>
+
+            <div class="button-group">
+              <!-- View Details Button -->
+                <form action="/admin/events/<%= event._id %>" method="GET" style="display: inline;">
+                  <button class="details-btn" type="submit">Details</button>
+                </form>
+
+              <!-- Delete Button -->
+                <form action="/api/events/<%= event._id %>?_method=DELETE" method="POST" style="display: inline;">
+                  <button class="delete-btn" type="submit">Delete</button>
+                </form>
+              </div>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Event Management - Admin Panel</p>
+  </footer>
+</body>
+</html>

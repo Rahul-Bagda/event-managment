@@ -1,0 +1,52 @@
+<!-- views/events.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All Events</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>All Events</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/register/form">Register</a></li>
+        <!-- <li><a href="/admin/dashboard">Dashboard</a></li> -->
+        <li><a href="/login">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+  <% if (!events || events.length === 0) { %>
+    <p style="text-align:center;">No events available.</p>
+  <% } else { %>
+    <div class="event-grid">
+      <% events.forEach(event => { %>
+        <div class="event-card">
+          <% if (event.imageUrl) { %>
+            <img src="<%= event.imageUrl %>" alt="Event Image" />
+          <% } else { %>
+            <div class="image-placeholder">image</div>
+          <% } %>
+          <h2><%= event.title %></h2>
+          <p><strong>Venue:</strong> <%= event.venue %></p>
+          <p><strong>Date:</strong> <%= new Date(event.startDate).toDateString() %> - <%= new Date(event.endDate).toDateString() %></p>
+          <p><strong>Description:</strong> <%= event.description %></p>
+          <a href="/register/form">
+            <button class="register-btn">Register</button>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Event Management</p>
+  </footer>
+</body>
+</html>
