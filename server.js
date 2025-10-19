@@ -26,7 +26,7 @@ connectDB();
 // ✅ Session setup
 app.use(
   session({
-    secret: "your_super_secret",
+    secret: process.env.SESSION_SECRET || "your_super_secret",
     resave: false,
     saveUninitialized: false,
   })
@@ -80,6 +80,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/events", eventRoutes); // used to create/delete events
 
 // ✅ Start Server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+app.listen(port , () => {
+  console.log(`server is runing on port 5000`);
+  
 });
